@@ -87,7 +87,7 @@ export default class App extends Component{
         <Form value={this.state.inputForm} onChangeInput={this.handleChange}
           onSubmit={this.handleSubmit} editItem={this.state.editTodo} />
         
-        <p className="todoComplited">Количество выполненых: {complitedTodo}</p>
+        <p className="todoComplited">Количество выполненных: {complitedTodo}</p>
        
         {todos.length > 0 && <TodoList items={todos}
           onDelete={this.handleDelete} updateCheckbox={this.complitedCheckbox}
