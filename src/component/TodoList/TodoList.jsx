@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import s from './todoList.module.css';
 import { ReactComponent as Bin } from '../../icon/bin.svg';
 import {ReactComponent as Pen} from '../../icon/pencil2.svg'
@@ -29,5 +30,13 @@ const TodoList = ({ items, onDelete, updateTodo, updateCheckbox }) => (
     </ul>
 </div>
 );
+
+TodoList.propTypes = {
+    items: PropTypes.array,
+    onDelete: PropTypes.func.isRequired,
+    updateTodo: PropTypes.func.isRequired,
+    updateCheckbox: PropTypes.func.isRequired
+
+}
 
 export default TodoList;

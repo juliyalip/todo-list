@@ -1,11 +1,14 @@
 import { Component } from 'react';
-import shortid from 'shortid'
+import shortid from 'shortid';
+
 
 import Form from './component/Form/Form.jsx';
 import TodoList from './component/TodoList/TodoList.jsx';
 
 
 export default class App extends Component{
+
+
 
 
   state = {

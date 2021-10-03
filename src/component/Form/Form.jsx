@@ -1,4 +1,6 @@
-import s from './form.module.css'
+import PropTypes from 'prop-types'
+import s from './form.module.css';
+
 
 const Form = ({ value, onChangeInput, editItem, onSubmit }) => (
     <form onSubmit={onSubmit}>
@@ -10,6 +12,13 @@ const Form = ({ value, onChangeInput, editItem, onSubmit }) => (
                 {editItem ? 'update todo' : 'add todo'}</button>
     </div>
     </form>)
-;
+    ;
+
+Form.propTypes = {
+    value: PropTypes.string,
+    onChangeInput: PropTypes.func.isRequired,
+    editItem: PropTypes.bool.isRequired,
+    onSubmit: PropTypes.func.isRequired
+    }
 
 export default Form
