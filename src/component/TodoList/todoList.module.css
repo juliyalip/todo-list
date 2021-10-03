@@ -1,0 +1,27 @@
+.list {
+  width: 450px;
+  margin-left: 0;
+  margin: 10px auto;
+  padding-left: 0;
+}
+
+.item {
+  display: flex;
+
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.containerBtn {
+  display: flex;
+  border: 1px solid black;
+  width: 60px;
+  justify-content: space-between;
+}
+
+button {
+  margin-right: 15px;
+}

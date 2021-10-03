@@ -1,0 +1,9 @@
+.base {
+  width: 380px;
+  background-color: greenyellow;
+  color: white;
+}
+
+.base-delite {
+  background-color: red;
+}
