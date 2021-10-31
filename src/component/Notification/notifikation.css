@@ -1,9 +1,16 @@
 .base {
-  width: 380px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
   background-color: greenyellow;
-  color: white;
+  color: black;
+  margin: 0;
 }
 
 .base-delite {
   background-color: red;
+  color: white;
 }

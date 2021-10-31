@@ -4,6 +4,8 @@ import shortid from 'shortid';
 
 import Form from './component/Form/Form.jsx';
 import TodoList from './component/TodoList/TodoList.jsx';
+import Filter from './component/Filter/Filter';
+
 
 
 export default class App extends Component{
@@ -16,7 +18,8 @@ export default class App extends Component{
     inputForm: '',
    editTodo: false,
     notification: false,
-    id: shortid.generate()
+    id: shortid.generate(),
+    filter: ''
   }
   
   handleChange = e => {
@@ -30,7 +33,16 @@ export default class App extends Component{
   handleSubmit = e => {
     e.preventDefault();
     if (!this.state.inputForm) {
-          return     }
+      this.setState({
+           notification: true
+      })
+      setTimeout(() => {
+        this.setState({
+     notification: false
+        })
+      }, 1000)
+    return}
+
     const todo = {
       id: this.state.id,
       complited: false,
@@ -81,22 +93,66 @@ export default class App extends Component{
   }
 
   render() {
-    
-    const { todos, notifikation } = this.state;
+   
+    const { todos, inputForm, filter, notification } = this.state;
+    const visibleTodo = todos.filter(todo =>( 
+      todo.text.toLowerCase().includes(filter.toLowerCase()))
+    ) 
 
     const complitedTodo =  todos.reduce((acc, todo) => ( todo.complited ? acc + 1 : acc) , 0)
     return (
       <div>
-        <Form value={this.state.inputForm} onChangeInput={this.handleChange}
+       
+        <Form value={inputForm} onChangeInput={this.handleChange} notification={notification}
           onSubmit={this.handleSubmit} editItem={this.state.editTodo} />
         
         <p className="todoComplited">Количество выполненных: {complitedTodo}</p>
-       
-        {todos.length > 0 && <TodoList items={todos}
+
+
+   {todos.length > 0 &&     <Filter value={filter} onChangeFilter={this.handleChange} />}
+        {todos.length > 0 && <TodoList items={visibleTodo}
           onDelete={this.handleDelete} updateCheckbox={this.complitedCheckbox}
           updateTodo={this.handleUpdateTodo}
-          visible={notifikation} />}
+         />}
+        
       </div>
     )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
